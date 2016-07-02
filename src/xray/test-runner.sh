@@ -62,7 +62,7 @@ while IFS= read -r LINE; do
     *PASSED*) printf "";;
     *IGNORED*) printf "";;
     *FAILED*) STATUS=1; "";;
-    ERROR*) STATUS=1; "";;
+    ERROR*) STATUS=1; printf "";;
     Finished*);;
   esac
   echo "${LINE}"
