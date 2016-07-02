@@ -13,11 +13,6 @@ MODULES=
 TESTS=
 #####################################################################
 
-
-CRED=$(tput setaf 1)
-CGREEN=$(tput setaf 2) 
-CYELLOW=$(tput setaf 3)
-CDEFAULT=$(tput sgr0)       
 STATUS=0
 
 function usage() {
@@ -63,18 +58,18 @@ fi
 
 while IFS= read -r LINE; do
   case "${LINE}" in
-    Module*) printf $CDEFAULT;;
-    *PASSED*) printf $CGREEN;;
-    *IGNORED*) printf $CYELLOW;;
-    *FAILED*) STATUS=1; printf $CRED;;
-    ERROR*) STATUS=1; printf $CRED;;
-    Finished*) echo && if [ $STATUS -eq 1 ]; then printf $CRED; else printf $CGREEN; fi;;
+    Module*) printf "";;
+    *PASSED*) printf "";;
+    *IGNORED*) printf "";;
+    *FAILED*) STATUS=1; "";;
+    ERROR*) STATUS=1; "";;
+    Finished*);;
   esac
   echo "${LINE}"
 done <<< "$RESPONSE"
 
 if [ $FORMAT == "text" ]; then
-  printf $CDEFAULT
+  printf ""
 fi
 
 exit $STATUS
