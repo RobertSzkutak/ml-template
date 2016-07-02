@@ -61,7 +61,7 @@ while IFS= read -r LINE; do
     Module*) printf "";;
     *PASSED*) printf "";;
     *IGNORED*) printf "";;
-    *FAILED*) STATUS=1; "";;
+    *FAILED*) STATUS=1; printf "";;
     ERROR*) STATUS=1; printf "";;
     Finished*);;
   esac
